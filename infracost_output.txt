@@ -1,0 +1,101 @@
+========================================================================
+Terraform Infracost Breakdown
+========================================================================
+$ infracost breakdown --path tfplan.json
+
+Project: dilee/infrastructure-as-code/terraform
+
+ Name                                                     Monthly Qty  Unit         Monthly Cost
+
+ aws_instance.app_server
+ ├─ Instance usage (Linux/UNIX, on-demand, t2.micro)              730  hours               $8.47
+ └─ root_block_device
+    └─ Storage (general purpose SSD, gp3)                           8  GB                  $0.64
+
+ aws_s3_bucket.logs["dev"]
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ aws_s3_bucket.logs["prod"]
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ aws_s3_bucket.logs["staging"]
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ aws_s3_bucket.main_app_bucket
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ OVERALL TOTAL                                                                             $9.11
+ ──────────────────────────────────
+ 5 cloud resources were detected:
+ ∙ 5 were estimated, all of which include usage-based costs, see https://infracost.io/usage-file
+
+========================================================================
+Pulumi Infracost Breakdown
+========================================================================
+$ infracost breakdown --path pulumi_preview.json
+
+Project: dilee/infrastructure-as-code/pulumi
+
+ Name                                                     Monthly Qty  Unit         Monthly Cost
+
+ aws:ec2/instance:Instance app-server
+ ├─ Instance usage (Linux/UNIX, on-demand, t2.micro)              730  hours               $8.47
+ └─ root_block_device
+    └─ Storage (general purpose SSD, gp3)                           8  GB                  $0.64
+
+ aws:s3/bucket:Bucket app-bucket-pulumi
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ aws:s3/bucket:Bucket logs-dev
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ aws:s3/bucket:Bucket logs-prod
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ aws:s3/bucket:Bucket logs-staging
+ └─ Standard
+    ├─ Storage                                                      0  GB                  $0.00
+    ├─ PUT, COPY, POST, LIST requests                               0  1k requests         $0.00
+    ├─ GET, SELECT, and all other requests                          0  1k requests         $0.00
+    ├─ Select data scanned                                          0  GB                  $0.00
+    └─ Select data returned                                         0  GB                  $0.00
+
+ OVERALL TOTAL                                                                             $9.11
+ ──────────────────────────────────
+ 5 cloud resources were detected:
+ ∙ 5 were estimated, all of which include usage-based costs, see https://infracost.io/usage-file
