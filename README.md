@@ -36,3 +36,21 @@ Terraform's local state is a known friction point for beginners. Forgetting to p
 
 ### Conclusion
 Neither tool is objectively "better"; they solve the same problem using different paradigms. Terraform is the established heavyweight champion of declarative infrastructure, while Pulumi offers a compelling, developer-friendly approach for highly dynamic and programmatic infrastructure creation.
+
+## Deployment Steps
+
+To run and verify the infrastructure provisioned by this repository, ensure you have configured your AWS credentials (`aws configure`) and installed the required CLI tools.
+
+### Running Terraform
+1. Navigate to the terraform directory: `cd terraform`
+2. Initialize the project (downloads providers): `terraform init`
+3. Preview the changes: `terraform plan`
+4. Deploy the infrastructure: `terraform apply -auto-approve`
+5. To clean up and avoid AWS charges: `terraform destroy -auto-approve`
+
+### Running Pulumi
+1. Navigate to the pulumi directory: `cd pulumi`
+2. Install Python dependencies: `pip install -r requirements.txt`
+3. Preview the changes: `pulumi preview`
+4. Deploy the infrastructure: `pulumi up --yes`
+5. To clean up and avoid AWS charges: `pulumi destroy --yes`
